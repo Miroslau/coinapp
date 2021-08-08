@@ -1,0 +1,7 @@
+[
+  {"id":1,"name":"BTC Bitcoin","price":84,"change":39,"changeProcent":96},
+  {"id":2,"name":"ETH Ethereum","price":26,"change":98,"changeProcent":33},
+  {"id":3,"name":"OKB OKB","price":39,"change":63,"changeProcent":27},
+  {"id":4,"name":"OKT OKExChain Token","price":42,"change":20,"changeProcent":48},
+  {"id":5,"name":"LTC Litecoin","price":47,"change":27,"changeProcent":56}
+]
