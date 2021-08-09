@@ -14,27 +14,27 @@ const columns = [
         prop: 'name',
         route: routeToCryptCard,
         hover: true,
-        width: 'minmax(147px, 1fr)'
+        width: 'minmax(40px, 1fr)'
     },
     {
         title: 'Price',
         prop: 'priceUsd',
         postfix: '$',
         type: 'number',
-        width: 'minmax(88px, 1fr)'
+        width: 'minmax(60px, 1fr)'
     },
     {
         title: '24h%',
         prop: 'changePercent24Hr',
         type: 'number',
-        width: 'minmax(202px, 1fr)'
+        width: 'minmax(30px, 1fr)'
     },
     {
         title: 'Difference in procent',
         prop: 'changePercent24Hr',
         postfix: '%',
         type: 'number',
-        width: 'minmax(202px, 268px)'
+        width: 'minmax(20px, auto)'
     }
 ]
 

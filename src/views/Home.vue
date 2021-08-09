@@ -9,14 +9,18 @@
      </Button>
    </div>
    <div class="home-popular-crypto">
-     <div>3 Popular crypto</div>
+     <div class="home-popular-crypto__name">3 Popular crypto</div>
      <List :list="popularCrypto" @itemClick="briefcaseOpen"/>
    </div>
-   <Table :columns="columnsCryptoPayments"
-          :rows="displayCryptoPayments"/>
-   <Pagination :pages="pages"
-               :page="page"
-               @clickPage="clickPage"/>
+   <div class="home-table">
+        <Table :columns="columnsCryptoPayments"
+               :rows="displayCryptoPayments"/>
+   </div>
+   <div class="home__pagination">
+     <Pagination :pages="pages"
+                 :page="page"
+                 @clickPage="clickPage"/>
+   </div>
    <ModalWindow v-if="openBriefcase"
                 @close="openBriefcase = false"
    >
@@ -156,7 +160,16 @@ export default {
     }
 
     &-popular-crypto {
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
       padding: 30px 0;
+
+      &__name {
+        padding-bottom: 15px;
+        text-align: center;
+        font-size: 35px;
+      }
     }
 
     &__send {
@@ -167,6 +180,29 @@ export default {
       display: flex;
       justify-content: flex-end;
       box-shadow: 0 -10px 35px -15px rgba(#B9B9B9, 0.4);
+    }
+
+    &-table {
+      max-width: 1072px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__pagination {
+      margin-top: 20px;
+    }
+  }
+
+  @media(min-width: 320px) and (max-width: 767px) {
+    .home {
+      &-popular-crypto {
+        margin: 0 auto;
+
+        &__name {
+          font-size: 20px;
+          text-align: center;
+        }
+      }
     }
   }
 </style>

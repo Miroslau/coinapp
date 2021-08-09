@@ -15,12 +15,12 @@
   <div class="crypto-card-info">
     <div class="crypto-card-info__item">
       <div>Name: {{cryptoPayment.name}}</div>
-      <div>Symbol: {{cryptoPayment.symbol}}</div>
-      <div>Price: {{convertNumber(cryptoPayment.priceUsd)}} USD</div>
-      <div>Change Percent 24 Hr: {{convertNumber(cryptoPayment.changePercent24Hr)}} %</div>
+      <div class="crypto-card-info__item_padding">Symbol: {{cryptoPayment.symbol}}</div>
+      <div class="crypto-card-info__item_padding">Price: {{convertNumber(cryptoPayment.priceUsd)}} USD</div>
+      <div class="crypto-card-info__item_padding">Change Percent 24 Hr: {{convertNumber(cryptoPayment.changePercent24Hr)}} %</div>
     </div>
     <div class="crypto-card-graphic">
-      <iframe src="https://blockchain.info/" width="700" height="500px"></iframe>
+      <iframe src="https://blockchain.info/" :width="defaltWidth" height="500px"></iframe>
     </div>
   </div>
 </div>
@@ -39,6 +39,7 @@ export default {
   },
   data () {
     return {
+      defaltWidth: 700,
       cryptoPayment: {}
     }
   },
@@ -53,6 +54,10 @@ export default {
             console.error(err)
           })
     },
+    updateWidth() {
+      const width = window.innerWidth;
+      if (width === 320) this.defaltWidth = width
+    },
     backOnMainPage () {
       const router = {
         name: 'Home'
@@ -66,6 +71,10 @@ export default {
         id: Date.now()
       })
     }
+  },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+    this.updateWidth();
   },
   beforeMount() {
     this.getCryptoPayment()
@@ -85,16 +94,21 @@ export default {
 
     &-info {
       padding-top: 30px;
-      border: 1px solid black;
-      display: grid;
-      grid-template-columns: minmax(100px, 500px) auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
 
       &__item {
         background: #F4F4F4;
         border-radius: 5px;
         padding: 10px 20px;
         box-shadow: 0 0 20px rgba(black, 0.05);
-        font-size: 30px;
+        font-size: 20px;
+
+        &_padding {
+          padding-top: 20px;
+        }
       }
     }
 
@@ -108,6 +122,20 @@ export default {
       &:hover {
         background-color: #555555;
         color: white;
+      }
+    }
+  }
+
+  @media(min-width: 320px) and (max-width: 767px) {
+    .crypto-card {
+      &-head {
+        justify-content: center;
+      }
+
+      &-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

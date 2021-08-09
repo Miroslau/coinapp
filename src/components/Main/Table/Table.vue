@@ -128,7 +128,6 @@ export default {
       position: relative;
       display: grid;
       align-items: center;
-      width: 100%;
       height: auto;
       min-height: 52px;
       grid-gap: 0 20px;

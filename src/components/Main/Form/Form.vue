@@ -1,21 +1,27 @@
 <template>
-  <div class="form">
+  <form class="form">
     <div class="form-row">
-      <div>Name Crypto: </div>
-      <input v-model="nameCrypto"
-             class="form__input"
+      <input class="form__input"
+             type="text"
+             id="name"
+             v-model="nameCrypto"
+             placeholder="Name Crypto"
+             autocomplete="off"
       >
     </div>
     <div class="form-row">
-      <div>Count: </div>
-      <input v-model="cryptoCount"
-             class="form__input"
+      <input class="form__input"
+             type="text"
+             id="count"
+             placeholder="Count"
+             v-model="cryptoCount"
+             autocomplete="off"
       >
     </div>
     <div class="form__button">
       <Button @buttonClick="addCrypto">Add</Button>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -48,26 +54,60 @@ export default {
 
 <style lang="scss" scoped>
   .form {
-    position: relative;
-    padding: 20px 0;
-    width: 500px;
+    max-width: 350px;
+    padding: 50px 20px 20px;
+    margin: 50px auto 30px;
+    background: white;
+
+    &__button {
+      margin: 0;
+      padding-top: 10px;
+      width: 100%;
+      line-height: 42px;
+      border-width: 0;
+      color: white;
+      font-size: 20px;
+    }
 
     &-row {
-      display: grid;
-      grid-template-columns: 100px auto;
-      grid-gap: 20px;
-      align-items: center;
+      position: relative;
+      margin-bottom: 40px;
     }
 
     &__input {
-      width: 50px;
-      padding: 12px 20px;
-      margin: 8px 0;
+      display: block;
+      width: 100%;
+      padding: 0 10px;
+      line-height: 40px;
+      background: none;
+      border-width: 0;
+      border-bottom: 2px solid #4a90e2;
+      transition: all 0.2s ease;
+
+      &:focus {
+        outline: 0;
+        border-color: #F77A52;
+      }
+
+      &:focus + label, :valid + label {
+        transform: translateY(-60px);
+        margin-left: -14px;
+        font-size: 14px;
+        font-weight: 400;
+        outline: 0;
+        border-color: #F77A52;
+        color: #F77A52;
+      }
     }
 
-    &__button {
-      display: flex;
-      padding-top: 15px;
+    &__label {
+      position: absolute;
+      left: 13px;
+      color: #9d959d;
+      font-size: 20px;
+      font-weight: 300;
+      transform: translateY(-35px);
+      transition: all 0.2s ease;
     }
   }
 </style>

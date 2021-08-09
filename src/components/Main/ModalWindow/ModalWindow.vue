@@ -65,7 +65,6 @@ export default {
     width: 100%;
     height: 100%;
     background: rgba(black, 0.56);
-    padding: 30px;
 
     &-wrapper {
       display: flex;

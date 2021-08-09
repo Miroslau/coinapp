@@ -45,7 +45,7 @@ export default {
 
     &-row {
       display: grid;
-      grid-template-columns: 20px 100px 50px 50px;
+      grid-template-columns: 20px 50px 50px 20px;
       align-items: center;
       grid-gap: 15px;
       padding: 15px 0;
